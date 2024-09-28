@@ -1,6 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+
+@font-face {
+  font-family: 'AllertaStencil';
+  src: url('./fonts/AllertaStencil-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ADLaMDisplay';
+  src: url('./fonts/ADLaMDisplay-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 :root {
   --background: #ffffff;
@@ -24,4 +40,15 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+
+.swiper-slide {
+  margin-right: 8px;
+  width: fit-content !important;
+}
+
+.eng-title {
+  font-family: 'AllertaStencil', sans-serif;
 }
