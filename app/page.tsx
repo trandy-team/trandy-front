@@ -13,7 +13,7 @@ export default function Home() {
     if (typeof window !== undefined) {
       setTimeout(() => {
         setEnter(true);
-      }, 3000);
+      }, 2000);
     }
   }, []);
 

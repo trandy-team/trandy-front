@@ -78,7 +78,7 @@
 
 .wrapper .catchphrase-text {
   margin: 0;
-  animation: neon2-1 3s infinite;
+  animation: neon2-1 2s infinite;
   color: #FFC107; /* 노란색 적용 */
   text-shadow: 0 0 10px #FFC107, 1px 1px #FFECB3, 0 0 280px #FF6F00; /* 노란 네온 효과 */
 }
