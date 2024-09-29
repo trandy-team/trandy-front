@@ -13,9 +13,10 @@
   transform: rotateY(180deg);
 }
 
-.front, .back {
+.front,
+.back {
   position: absolute;
-  backface-visibility: hidden; 
+  backface-visibility: hidden;
 }
 
 .back {
@@ -60,7 +61,7 @@
 }
 
 .wrapper p {
-  font-family: 'ADLaMDisplay';
+  font-family: "ADLaMDisplay";
 }
 
 .wrapper .catchphrase-texts {
@@ -79,29 +80,51 @@
 .wrapper .catchphrase-text {
   margin: 0;
   animation: neon2-1 2s infinite;
-  color: #FFC107; /* 노란색 적용 */
-  text-shadow: 0 0 10px #FFC107, 1px 1px #FFECB3, 0 0 280px #FF6F00; /* 노란 네온 효과 */
+  color: #ffc107; /* 노란색 적용 */
+  text-shadow:
+    0 0 10px #ffc107,
+    1px 1px #ffecb3,
+    0 0 280px #ff6f00; /* 노란 네온 효과 */
 }
 
 @keyframes neon2-1 {
-  0%, 80%, 95%, 98%, 100% {
-    color: #FFC107; /* 메인 컬러: 노란색 */
-    text-shadow: 0 0 10px #FFC107, 1px 1px #FFECB3, 0 0 280px #FF6F00;
+  0%,
+  80%,
+  95%,
+  98%,
+  100% {
+    color: #ffc107; /* 메인 컬러: 노란색 */
+    text-shadow:
+      0 0 10px #ffc107,
+      1px 1px #ffecb3,
+      0 0 280px #ff6f00;
   }
-  81%, 94%, 96%, 99% {
+  81%,
+  94%,
+  96%,
+  99% {
     color: #222;
-    text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82), -2px 0px 4px #29121A;
+    text-shadow:
+      0 0 10px #000,
+      1px 1px rgb(99, 74, 82),
+      -2px 0px 4px #29121a;
   }
 }
 
 @keyframes bgNeon-1 {
-  0%, 80%, 95%, 98%, 100% {
-    background-color: #FF6F00; /* 어두운 노란색 */
+  0%,
+  80%,
+  95%,
+  98%,
+  100% {
+    background-color: #ff6f00; /* 어두운 노란색 */
   }
-  81%, 94%, 96%, 99% {
+  81%,
+  94%,
+  96%,
+  99% {
     background-color: #111;
   }
 }
-
 
 /* // Catchphrase */
