@@ -10,7 +10,7 @@ export default function Home() {
   const [enter, setEnter] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== "undefined") {
       setTimeout(() => {
         setEnter(true);
       }, 2000);
