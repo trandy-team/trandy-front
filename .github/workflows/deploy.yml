@@ -18,9 +18,18 @@ jobs:
       - name: Checkout source code.
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.x' # 원하는 Node.js 버전
+          cache: 'npm'         # npm 캐시 사용
+
+      - name: Install specific npm version
+        run: npm install -g npm@10.8.3 # 원하는 npm 버전 지정
+
       - name: Check Node v
         run: node -v
-
+        
       - name: Cache node modules
         uses: actions/cache@v3
         id: cache
