@@ -8,7 +8,7 @@ import Card from "../_common/Card";
 const SwiperCards = () => {
   return (
     <div data-aos="fade-left" data-delay="300">
-      <Swiper slidesPerView={"auto"} pagination={true} modules={[Pagination]} className="mySwiper">
+      <Swiper slidesPerView="auto" pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
           <Card>패션</Card>
         </SwiperSlide>
