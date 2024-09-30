@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 type Props = {
@@ -11,6 +12,14 @@ const Card = ({ children }: Props) => {
     setIsFlipped(!isFlipped);
   };
 
+  /**
+   * 투표
+   * @param id id === 1 찬성 / id === 2 반대
+   */
+  const onClickVote = (id: string) => {
+    console.log(id);
+  };
+
   return (
     <div className="flip-container min-w-[104px] h-[154px] rounded-md p-1" onClick={onClickCard}>
       <div className={`card ${isFlipped ? "flipped w-full h-full" : "w-full h-full"}`}>
@@ -19,7 +28,7 @@ const Card = ({ children }: Props) => {
             <div className="childrenEl">{children}</div>
           </div>
         </div>
-        <div className="back w-full h-full relative p-2 rounded-md shadow-md">
+        <div className="back w-full h-full relative p-2 rounded-md shadow-md flex items-end">
           <div className="circle absolute left-2 top-2"></div>
           <div className="circle absolute right-2 top-2"></div>
           <p className="card-backText absolute font-semibold text-2xl text-[#C65F2D] top-1/2 left-[48%] transform -translate-x-1/2 -translate-y-1/2">
@@ -32,9 +41,19 @@ const Card = ({ children }: Props) => {
             Trandy
           </p>
 
-          <div>
-            <button></button>
-            <button></button>
+          <div className=" w-full grid grid-cols-2 gap-1">
+            <button
+              onClick={() => onClickVote("1")}
+              className="flex justify-center border border-white rounded-md py-1"
+            >
+              <Image src={"./img/vote_yes.svg"} alt="" width={24} height={24} />
+            </button>
+            <button
+              onClick={() => onClickVote("2")}
+              className="flex justify-center border border-white rounded-md py-1"
+            >
+              <Image src={"./img/vote_no.svg"} alt="" width={24} height={24} />
+            </button>
           </div>
         </div>
       </div>
