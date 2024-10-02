@@ -36,7 +36,7 @@ const Card = ({ children }: Props) => {
       tabIndex={0}
     >
       <div className={`card ${isFlipped ? "flipped w-full h-full" : "w-full h-full"}`}>
-        <div className="front w-full h-full text-center rounded-md shadow-md">
+        <div className="front w-full h-full text-center rounded-md shadow-md dark:bg-slate-300">
           <div className="voteEl">
             <div className="childrenEl">{children}</div>
           </div>
