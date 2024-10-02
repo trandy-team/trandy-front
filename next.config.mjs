@@ -1,19 +1,26 @@
 import withPWA from "next-pwa";
 
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   images: {
-    domains: ["trandy.site"],
-  },
-  pwa: {
-    dest: "public", // PWA 관련 파일들이 저장될 폴더를 설정 (public 폴더 사용)
-    register: true, // 서비스 워커 자동 등록
-    skipWaiting: true, // 페이지 새로고침 없이 새로운 서비스 워커를 활성화
-    disable: process.env.NODE_ENV === "development", // 개발 환경에서는 PWA 비활성화
-  },
-  env: {
-    SITE_URL: "https://trandy.site", // 사이트 URL을 환경 변수로 설정
+    domains: ["https://trandy.site/"],
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "trandy.site",
+        port: "",
+        pathname: "**",
+      },
+    ],
   },
 };
-
-export default withPWA(nextConfig);
+export default withPWA({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  skipWaiting: true,
+})(nextConfig);
