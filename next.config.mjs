@@ -2,6 +2,9 @@ import withPWA from "next-pwa";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["trandy.site"],
+  },
   pwa: {
     dest: "public", // PWA 관련 파일들이 저장될 폴더를 설정 (public 폴더 사용)
     register: true, // 서비스 워커 자동 등록
