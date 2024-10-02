@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 애플리케이션 디렉토리로 이동
-cd /path/to/your/nextjs/app
+cd /home/ubuntu/trandy_app
 
 # Next.js 애플리케이션을 백그라운드에서 실행
 echo "Next.js 애플리케이션 실행 중..."
