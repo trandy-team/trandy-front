@@ -23,7 +23,7 @@ export default function Home() {
       {enter ? (
         <div className="main">
           <Container>
-            <button></button>
+            <button type="button">로그인</button>
           </Container>
 
           {/* Hot Things */}
@@ -45,28 +45,28 @@ export default function Home() {
             {/* Category 리스트 */}
             <div className="grid grid-cols-4 grid-rows-2 gap-4">
               <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href={"/"} className="w-full h-[50px] flex justify-center items-center">
+                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
                   패션
                 </Link>
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href={"/"} className="w-full h-[50px] flex justify-center items-center">
+                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
                   아이돌
                 </Link>
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href={"/"} className="w-full h-[50px] flex justify-center items-center">
+                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
                   음악
                 </Link>
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href={"/"} className="w-full h-[50px] flex justify-center items-center">
+                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
                   밈
                 </Link>
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
                 <Link
-                  href={"/"}
+                  href="/"
                   className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
                   onClick={(e) => e.preventDefault()}
                 >
@@ -75,7 +75,7 @@ export default function Home() {
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
                 <Link
-                  href={"/"}
+                  href="/"
                   className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
                   onClick={(e) => e.preventDefault()}
                 >
@@ -84,7 +84,7 @@ export default function Home() {
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
                 <Link
-                  href={"/"}
+                  href="/"
                   className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
                   onClick={(e) => e.preventDefault()}
                 >
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
               <div className="border border-gray-50 rounded-md shadow-md">
                 <Link
-                  href={"/"}
+                  href="/"
                   className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
                   onClick={(e) => e.preventDefault()}
                 >

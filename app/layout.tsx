@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./custom.css";
@@ -16,11 +15,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Trandys",
-  description: "Trendy 하지 못한 우린, Trandy",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Trandy</title>
+        <meta name="description" content="Trendy 하지 못한 우린, Trandy" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
