@@ -3,6 +3,9 @@ import "./globals.css";
 import "./custom.css";
 import "swiper/css";
 import "aos/dist/aos.css";
+import ClinetsContainer from "@/components/_common/ClinetsContainer";
+// import { Provider } from "react-redux";
+// import store from "@/redux/store";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +33,9 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ClinetsContainer>{children}</ClinetsContainer>
+      </body>
     </html>
   );
 }
