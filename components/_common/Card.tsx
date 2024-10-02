@@ -36,13 +36,13 @@ const Card = ({ children }: Props) => {
       tabIndex={0}
     >
       <div className={`card ${isFlipped ? "flipped w-full h-full" : "w-full h-full"}`}>
-        <div className="front w-full h-full text-center rounded-md shadow-md">
+        <div className="front w-full h-full text-center rounded-md shadow-md dark:bg-slate-300">
           <div className="voteEl">
             <div className="childrenEl">{children}</div>
           </div>
         </div>
         <div className="back w-full h-full relative p-2 rounded-md shadow-md flex items-end">
-          <div className="circle absolute left-2 top-2" />
+          <div className="circle absolute left-2 top-2 bg-[#C65F2D]" />
           <div className="circle absolute right-2 top-2" />
           <p className="card-backText absolute font-semibold text-2xl text-[#C65F2D] top-1/2 left-[48%] transform -translate-x-1/2 -translate-y-1/2">
             Trandy
