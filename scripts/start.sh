@@ -7,4 +7,8 @@ cd /home/ubuntu/trandy_app
 echo "Next.js 애플리케이션 실행 중..."
 nohup npm run start > nextjs.log 2>&1 &
 
-echo "Next.js가 백그라운드에서 실행되었습니다."
+# 백그라운드 실행된 프로세스의 PID를 저장
+NEXT_PID=$!
+
+# PID 출력
+echo "Next.js가 백그라운드에서 실행되었습니다. (PID: $NEXT_PID)"
