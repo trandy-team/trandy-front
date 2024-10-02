@@ -1,0 +1,21 @@
+{
+  "name": "Trandy",
+  "short_name": "Trandy",
+  "description": "Trendy 하지 못한 우린, Trandy",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F16",
+  "theme_color": "#385C77",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
