@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# nvm 설정을 불러옴 (CodeDeploy에서 인식 불가)
+source /home/ubuntu/.nvm/nvm.sh
+
 # 애플리케이션 디렉토리로 이동
 cd /home/ubuntu/trandy_app
 
