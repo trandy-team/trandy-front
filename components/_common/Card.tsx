@@ -43,7 +43,7 @@ const Card = ({ children }: Props) => {
         </div>
         <div className="back w-full h-full relative p-2 rounded-md shadow-md flex items-end">
           <div className="circle absolute left-2 top-2 bg-[#C65F2D]" />
-          <div className="circle absolute right-2 top-2" />
+          <div className="circle absolute right-2 top-2 bg-[#C65F2D]" />
           <p className="card-backText absolute font-semibold text-2xl text-[#C65F2D] top-1/2 left-[48%] transform -translate-x-1/2 -translate-y-1/2">
             Trandy
           </p>
