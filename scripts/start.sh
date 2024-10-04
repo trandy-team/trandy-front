@@ -6,6 +6,8 @@ export PATH=/home/ubuntu/.nvm/versions/node/v22.9.0/bin:$PATH
 # 애플리케이션 디렉토리로 이동
 cd /home/ubuntu/trandy_app
 
+npm run build
+
 # Next.js 애플리케이션을 백그라운드에서 실행
 echo "Next.js 애플리케이션 실행 중..."
 nohup npm run start > nextjs.log 2>&1 &
