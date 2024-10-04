@@ -21,13 +21,12 @@
 
 .back {
   transform: rotateY(180deg);
-  background-color: #030401;
+  background-color: #383838;
 }
 
 .back .circle {
   width: 20px;
   height: 20px;
-  background-color: #fff;
   border-radius: 50%;
 }
 
