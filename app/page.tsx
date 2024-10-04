@@ -3,11 +3,25 @@
 import Catchphrase from "@/components/_common/Catchphrase";
 import Container from "@/components/_common/Container";
 import SwiperCards from "@/components/main/SwiperCards";
+import RootModal from "@/components/modal/RootModal";
+import { RootState } from "@/redux/rootReducer";
+import { closeModal, openModal } from "@/redux/stores/ModalStatus";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
+  const isModalOpen = useSelector((state: RootState) => state.modalStatus);
+  const dispatch = useDispatch();
   const [enter, setEnter] = useState(false);
+
+  const handleOpenModal = () => {
+    dispatch(openModal()); // 모달 열기
+  };
+
+  const handleCloseModal = () => {
+    dispatch(closeModal()); // 모달 닫기
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -23,7 +37,9 @@ export default function Home() {
       {enter ? (
         <div className="main">
           <Container>
-            <button type="button">로그인</button>
+            <button type="button" onClick={handleOpenModal}>
+              로그인
+            </button>
           </Container>
 
           {/* Hot Things */}
@@ -106,6 +122,8 @@ export default function Home() {
       ) : (
         <Catchphrase />
       )}
+
+      <RootModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </>
   );
 }
