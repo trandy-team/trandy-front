@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Next.js 프로세스 검색 및 중지
-NEXT_PID=$(ps aux | grep 'next start' | grep -v 'grep' | awk '{print $2}')
+NEXT_PID=$(ss -tulnp | grep ':3000' | awk -F '[=,/]+' '{print $3}')
 
 if [ -z "$NEXT_PID" ]; then
   echo "실행 중인 Next.js 프로세스가 없습니다."
