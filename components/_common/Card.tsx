@@ -25,7 +25,7 @@ const Card = ({ children }: Props) => {
 
   return (
     <div
-      className="card-container flip-container min-w-[104px] h-[154px] rounded-md p-1"
+      className="flip-container min-w-[104px] h-[154px] rounded-md p-1"
       onClick={onClickCard}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
