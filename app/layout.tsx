@@ -1,10 +1,22 @@
 import localFont from "next/font/local";
 import "./globals.css";
-// import "./custom.css";
-import "@/styles/main.scss";
+import "./custom.css";
 import "swiper/css";
 import "aos/dist/aos.css";
 import ClinetsContainer from "@/components/_common/ClinetsContainer";
+// import { Provider } from "react-redux";
+// import store from "@/redux/store";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export default function RootLayout({
   children,

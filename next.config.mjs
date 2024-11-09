@@ -17,9 +17,6 @@ const nextConfig = {
       },
     ],
   },
-  sassOptions: {
-    implementation: "sass-embedded",
-  },
 };
 export default withPWA({
   dest: "public",
