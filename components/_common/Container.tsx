@@ -5,14 +5,15 @@ import AOS from "aos";
 
 type Props = {
   children: React.ReactNode;
+  classnames?: string;
 };
 
-const Container = ({ children }: Props) => {
+const Container = ({ children, classnames }: Props) => {
   useEffect(() => {
     AOS.init();
   }, []);
 
-  return <section className="px-4">{children}</section>;
+  return <section className={`px-4 ${classnames}`}>{children}</section>;
 };
 
 export default Container;
