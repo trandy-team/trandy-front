@@ -12,15 +12,6 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      animation: {
-        scroll: 'scroll 10s linear infinite',
-      },
-      keyframes: {
-        scroll: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-30%)' },
-        },
-      },
     },
   },
   plugins: [],

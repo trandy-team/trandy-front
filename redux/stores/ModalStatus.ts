@@ -1,22 +1,16 @@
 // redux/modalStatus.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-type ModalState = {
-  [key: string]: boolean; // 모달의 ID를 key로 사용
-};
+type ModalState = boolean;
 
-const initialState: ModalState = {}; 
+const initialState: ModalState = false; 
 
 const modalStatus = createSlice({
   name: 'modalOnOff',
   initialState,
   reducers: {
-    openModal: (state, action: PayloadAction<string>) => {
-      state[action.payload] = true;
-    },
-    closeModal: (state, action: PayloadAction<string>) => {
-      state[action.payload] = false;
-    },
+    openModal: (state) => true, // 모달 열기
+    closeModal: (state) => false, // 모달 닫기
   },
 });
 

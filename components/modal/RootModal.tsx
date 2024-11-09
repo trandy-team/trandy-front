@@ -1,14 +1,13 @@
-"use client";
-
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/rootReducer";
+import React from "react";
 
 type Props = {
-  children: React.ReactNode;
+  isOpen: boolean;
+  onClose: (state: boolean) => void;
 };
 
-const RootModal = ({ children }: Props) => {
+const RootModal = ({ isOpen, onClose }: Props) => {
+  if (!isOpen) return null;
+
   return (
     <>
       {/* dimmed */}
@@ -16,7 +15,18 @@ const RootModal = ({ children }: Props) => {
 
       {/* modal */}
       <div className="w-[200px] h-[200px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-pink-300 z-50">
-        {children}
+        <div className="modal-content p-2">
+          <div className="flex justify-end">
+            <button
+              type="button"
+              className="w-5 h-5 rounded-full bg-red-500 flex justify-center items-center text-yellow-300"
+              onClick={() => onClose(false)}
+            >
+              x
+            </button>
+          </div>
+          카카오로 로그인하기
+        </div>
       </div>
     </>
   );
