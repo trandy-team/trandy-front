@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200`}>
+      <body className="bg-gray-200">
         <ClinetsContainer>{children}</ClinetsContainer>
       </body>
     </html>
