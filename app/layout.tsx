@@ -2,6 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "./custom.css";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "aos/dist/aos.css";
 import ClinetsContainer from "@/components/_common/ClinetsContainer";
 // import { Provider } from "react-redux";
@@ -33,7 +35,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200`}>
         <ClinetsContainer>{children}</ClinetsContainer>
       </body>
     </html>

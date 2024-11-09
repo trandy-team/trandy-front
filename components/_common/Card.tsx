@@ -25,7 +25,7 @@ const Card = ({ children }: Props) => {
 
   return (
     <div
-      className="flip-container min-w-[104px] h-[154px] rounded-md p-1"
+      className="flip-container min-w-[104px] h-[154px] rounded-md p-1 border"
       onClick={onClickCard}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
@@ -36,7 +36,7 @@ const Card = ({ children }: Props) => {
       tabIndex={0}
     >
       <div className={`card ${isFlipped ? "flipped w-full h-full" : "w-full h-full"}`}>
-        <div className="front w-full h-full text-center rounded-md shadow-md dark:bg-slate-300">
+        <div className="front w-full h-full text-center rounded-md shadow-md dark:bg-slate-300 bg-slate-300">
           <div className="voteEl">
             <div className="childrenEl">{children}</div>
           </div>
