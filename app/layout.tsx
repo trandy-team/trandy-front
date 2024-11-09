@@ -6,19 +6,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "aos/dist/aos.css";
 import ClinetsContainer from "@/components/_common/ClinetsContainer";
-// import { Provider } from "react-redux";
-// import store from "@/redux/store";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export default function RootLayout({
   children,
@@ -35,7 +22,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200`}>
+      <body className="bg-gray-200">
         <ClinetsContainer>{children}</ClinetsContainer>
       </body>
     </html>
