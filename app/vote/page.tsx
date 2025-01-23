@@ -1,11 +1,11 @@
 import React from "react";
 
-const MainPage = () => {
+const Vote = () => {
   return (
     <div>
-      <p>main</p>
+      <p>Vote</p>
     </div>
   );
 };
 
-export default MainPage;
+export default Vote;

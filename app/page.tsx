@@ -1,129 +1,68 @@
 "use client";
 
-import Catchphrase from "@/components/_common/Catchphrase";
-import Container from "@/components/_common/Container";
-import SwiperCards from "@/components/main/SwiperCards";
-import RootModal from "@/components/modal/RootModal";
-import { RootState } from "@/redux/rootReducer";
-import { closeModal, openModal } from "@/redux/stores/ModalStatus";
-import Link from "next/link";
+import Container from "@/components/Container";
+import Skeleton from "@/components/Skeleton";
+import Wrapper from "@/components/Wrapper";
+import { handleFetch } from "@/utils/handleFetch";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
-export default function Home() {
-  const isModalOpen = useSelector((state: RootState) => state.modalStatus);
-  const dispatch = useDispatch();
-  const [enter, setEnter] = useState(false);
+/**
+ *  @url /페이지접속시 통신할 초기 API
+ *  @description 페이지 접속 시 클라이언트와 통신할 API로, 투표 상태와 카테고리 정보를 반환합니다.
+ *  @param {string} loginToken - 로그인 토큰, 사용자 인증에 사용됩니다. (어떤 형식인지 안정함)
+ *  @returns {Object} Response 데이터
+ *
+ *  @property {boolean} isVote - 사용자가 현재 투표에 참여했는지 여부를 나타냅니다.
+ *
+ *  @property {Array<Object>} voteList - 투표 가능한 아이템 목록:
+ *    - @property {string} voteList[].id - 투표 아이템의 고유 ID
+ *    - @property {string} voteList[].name - 투표 아이템 이름
+ *    - @property {number} voteList[].approvalCnt - 찬성표 수
+ *    - @property {number} voteList[].disapprovalCnt - 반대표 수
+ *    - @property {string} voteList[].imgSrc - 투표 아이템의 이미지 경로
+ *
+ *  @property {Array<Object>} category - 카테고리 리스트:
+ *    - @property {string} category[].id - 카테고리 고유 ID
+ *    - @property {string} category[].title - 카테고리 이름
+ *    - @property {Array<string>} category[].imgSrcList - 해당 카테고리의 이미지 경로 리스트
+ */
 
-  const handleOpenModal = () => {
-    dispatch(openModal()); // 모달 열기
-  };
+export default function Home(): unknown {
+  const [initData, setInitData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleCloseModal = () => {
-    dispatch(closeModal()); // 모달 닫기
+  const onLoadData = async () => {
+    try {
+      const result = await handleFetch({
+        url: "/data/HomeData.json",
+        datas: {},
+        method: "GET",
+        needLogin: false,
+      });
+
+      setInitData(result);
+    } catch (error) {
+      console.error("Error loading data:", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setTimeout(() => {
-        setEnter(true);
-      }, 2000);
-    }
+    onLoadData();
   }, []);
-
+  console.log(initData);
   return (
-    <>
-      <h1 className="invisible hidden">메인페이지</h1>
-      {enter ? (
-        <div className="main">
-          <Container>
-            <button type="button" onClick={handleOpenModal}>
-              로그인
-            </button>
-          </Container>
+    <Container>
+      <Wrapper type="full">
+        {loading ? <Skeleton width="100%" height="200px" /> : <p>투표 선정된 아이템 배너</p>}
+      </Wrapper>
 
-          {/* Hot Things */}
-          <Container>
-            <h2 className="text-center my-2 eng-title text-[32px]">Hot Things</h2>
-            <SwiperCards />
-          </Container>
-
-          {/* Still Things */}
-          <Container>
-            <h2 className="text-center my-2 eng-title text-[32px]">Still Things</h2>
-            <SwiperCards />
-          </Container>
-
-          {/* Category */}
-          <Container>
-            <h2 className="text-center my-2 eng-title text-[32px]">Category</h2>
-
-            {/* Category 리스트 */}
-            <div className="grid grid-cols-4 grid-rows-2 gap-4">
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
-                  패션
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
-                  아이돌
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
-                  음악
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link href="/" className="w-full h-[50px] flex justify-center items-center">
-                  밈
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link
-                  href="/"
-                  className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  🚧준비🚧
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link
-                  href="/"
-                  className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  🚧준비🚧
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link
-                  href="/"
-                  className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  🚧준비🚧
-                </Link>
-              </div>
-              <div className="border border-gray-50 rounded-md shadow-md">
-                <Link
-                  href="/"
-                  className="w-full h-[50px] flex justify-center items-center text-sm cursor-none"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  🚧준비🚧
-                </Link>
-              </div>
-            </div>
-          </Container>
-        </div>
-      ) : (
-        <Catchphrase />
-      )}
-
-      <RootModal isOpen={isModalOpen} onClose={handleCloseModal} />
-    </>
+      <Wrapper type="gap">
+        {loading ? <Skeleton width="100%" height="20px" /> : <p>투표 선정된 아이템 배너</p>}
+      </Wrapper>
+    </Container>
   );
 }
