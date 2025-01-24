@@ -8,9 +8,9 @@ type Props = {
 const Wrapper = ({ children, type = "gap" }: Props) => {
   switch (type) {
     case "full":
-      return <div>{children}</div>;
+      return <div className="wrapper">{children}</div>;
     default:
-      return <div className="px-4">{children}</div>;
+      return <div className="wrapper">{children}</div>;
   }
 };
 

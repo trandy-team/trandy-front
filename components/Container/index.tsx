@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Container = ({ children }: Props) => {
-  return <div className="w-full max-w-[675px] mx-auto overflow-hidden">{children}</div>;
+  return <div className="container">{children}</div>;
 };
 
 export default Container;
