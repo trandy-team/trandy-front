@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import "aos/dist/aos.css";
+import Navigation from "@/components/Navigation/Bottom";
 
 export const metadata = {
   title: "Trendy 하지 못한 우린, Trandy",
@@ -32,7 +33,10 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Navigation />
+      </body>
     </html>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import Container from "@/components/Container";
+import TopNavigation from "@/components/Navigation/Top";
+import Wrapper from "@/components/Wrapper";
 import React from "react";
 import Slider from "react-slick";
 
@@ -15,26 +17,30 @@ const Vote = () => {
     focusOnSelect: true,
   };
   return (
-    <Container>
-      <Slider {...settings}>
-        {[...Array(6)].map((_, index) => (
-          <div key={index}>
-            <div
-              style={{
-                height: "200px",
-                background: "#6c757d",
-                color: "white",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {index + 1}
+    <>
+      <TopNavigation />
+
+      <Wrapper>
+        <Slider {...settings}>
+          {[...Array(6)].map((_, index) => (
+            <div key={index}>
+              <div
+                style={{
+                  height: "200px",
+                  background: "#6c757d",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                {index + 1}
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-    </Container>
+          ))}
+        </Slider>
+      </Wrapper>
+    </>
   );
 };
 

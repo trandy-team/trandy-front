@@ -1,12 +1,14 @@
 "use client";
 
+import TopNavigation from "@/components/Navigation/Top";
+import Wrapper from "@/components/Wrapper";
 import React from "react";
 
 const Playground = () => {
   return (
-    <div>
+    <Wrapper>
       <p>Playground</p>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -2,16 +2,10 @@ import React from "react";
 
 type Props = {
   children: React.ReactNode;
-  type: "full" | "gap";
 };
 
-const Wrapper = ({ children, type = "gap" }: Props) => {
-  switch (type) {
-    case "full":
-      return <div className="wrapper">{children}</div>;
-    default:
-      return <div className="wrapper">{children}</div>;
-  }
+const Wrapper = ({ children }: Props) => {
+  return <section style={{ marginTop: 56 }}>{children}</section>;
 };
 
 export default Wrapper;

@@ -1,8 +1,11 @@
 "use client";
 
-import { handleFetch } from "@/utils/handleFetch";
+import TopNavigation from "@/components/Navigation/Top";
+import Wrapper from "@/components/Wrapper";
+import { swrFetcher } from "@/utils/handleFetch";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import useSWR from "swr";
 
 /**
  *  @url /페이지접속시 통신할 초기 API
@@ -29,46 +32,25 @@ const Home = () => {
   const [initData, setInitData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const onLoadData = async () => {
-    try {
-      const result = await handleFetch({
-        url: "/data/HomeData.json",
-        datas: {},
-        method: "GET",
-        needLogin: false,
-      });
-
-      setInitData(result);
-    } catch (error) {
-      console.error("Error loading data:", error);
-    } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
-    }
-  };
+  const { data, error, isLoading } = useSWR("/data/HomeData.json", swrFetcher);
 
   useEffect(() => {
-    onLoadData();
-  }, []);
-  return (
-    <div>
-      <p>메인페이지</p>
+    if (!isLoading) {
+      setTimeout(() => setLoading(false), 500);
+    }
+  }, [isLoading]);
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 8,
-        }}
-      >
-        <Link href={"/vote"}>투표페이지</Link>
-        <Link href={"/setting"}>설정페이지</Link>
-        <Link href={"/playground"}>커뮤니티페이지</Link>
-        <Link href={"/mypage"}>마이페이지</Link>
-        <Link href={"/login"}>로그인페이지</Link>
-      </div>
-    </div>
+  if (error) return <p>에러 발생!</p>;
+  if (loading) return <p>로딩 중...</p>;
+
+  return (
+    <>
+      <TopNavigation />
+
+      <Wrapper>
+        <p>메인페이지</p>
+      </Wrapper>
+    </>
   );
 };
 
