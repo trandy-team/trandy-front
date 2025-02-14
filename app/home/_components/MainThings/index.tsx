@@ -10,7 +10,7 @@ type Props = {
   height: number;
 };
 
-const HotThings = ({ src, width, height }: Props) => {
+const MainThings = ({ src, width, height }: Props) => {
   const imgRef = useRef<HTMLImageElement | null>(null);
   const [color, setColor] = useState<string>("");
 
@@ -27,8 +27,8 @@ const HotThings = ({ src, width, height }: Props) => {
   }, []);
 
   return (
-    <div className="hotThings__box" style={{ backgroundColor: color }}>
-      <div className="hotThings__img">
+    <div className="MainThings__box" style={{ backgroundColor: color }}>
+      <div className="MainThings__img">
         <div style={{ width: `${width}px`, height: `${height}px` }}>
           <Image ref={imgRef} src={src} alt="사진" fill unoptimized />
         </div>
@@ -37,4 +37,4 @@ const HotThings = ({ src, width, height }: Props) => {
   );
 };
 
-export default HotThings;
+export default MainThings;
