@@ -1,0 +1,12 @@
+.slick-slide {
+  scale: (0.8);
+  opacity: 0.7;
+
+  &.slick-center {
+    scale: (1.01);
+    opacity: 1;
+    transition:
+      scale 0.3s ease,
+      opacity 0.3s ease;
+  }
+}

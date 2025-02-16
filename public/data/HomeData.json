@@ -1,0 +1,66 @@
+{
+    "isVote": false,
+    "voteList": [
+      {
+        "id": "vote1",
+        "name": "Actor of the Year",
+        "approvalCnt": 250,
+        "disapprovalCnt": 50,
+        "imgSrc": "/mock/home/actor01.jpg"
+      },
+      {
+        "id": "vote2",
+        "name": "Top Drama",
+        "approvalCnt": 300,
+        "disapprovalCnt": 80,
+        "imgSrc": "/mock/home/drama01.jpg"
+      },
+      {
+        "id": "vote3",
+        "name": "Best Music",
+        "approvalCnt": 180,
+        "disapprovalCnt": 40,
+        "imgSrc": "/mock/home/music01.jpg"
+      },
+      {
+        "id": "vote4",
+        "name": "Favorite Singer",
+        "approvalCnt": 400,
+        "disapprovalCnt": 20,
+        "imgSrc": "/mock/home/singer01.jpg"
+      }
+    ],
+    "category": [
+      {
+        "id": "cat1",
+        "title": "Singers",
+        "imgSrcList": [
+          "/mock/home/singer01.jpg",
+          "/mock/home/singer02.webp"
+        ]
+      },
+      {
+        "id": "cat2",
+        "title": "Streamers",
+        "imgSrcList": [
+          "/mock/home/streamer01.jpg",
+          "/mock/home/streamer02.jpg"
+        ]
+      },
+      {
+        "id": "cat3",
+        "title": "Dramas",
+        "imgSrcList": [
+          "/mock/home/drama01.jpg"
+        ]
+      },
+      {
+        "id": "cat4",
+        "title": "Music",
+        "imgSrcList": [
+          "/mock/home/music01.jpg"
+        ]
+      }
+    ]
+  }
+  
