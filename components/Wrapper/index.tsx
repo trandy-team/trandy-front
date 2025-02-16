@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -5,7 +7,20 @@ type Props = {
 };
 
 const Wrapper = ({ children }: Props) => {
-  return <section style={{ marginTop: 56 }}>{children}</section>;
+  const pathname = usePathname();
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <section style={{ marginTop: 56 }}>{children}</section>
+      </motion.div>
+    </AnimatePresence>
+  );
 };
 
 export default Wrapper;
