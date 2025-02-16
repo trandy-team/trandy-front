@@ -3,9 +3,9 @@
 import TopNavigation from "@/components/Navigation/Top";
 import Wrapper from "@/components/Wrapper";
 import { swrFetcher } from "@/utils/handleFetch";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
+import TopSection from "./_components/Top";
 
 /**
  *  @url /페이지접속시 통신할 초기 API
@@ -28,11 +28,31 @@ import useSWR from "swr";
  *    - @property {Array<string>} category[].imgSrcList - 해당 카테고리의 이미지 경로 리스트
  */
 
+type CategoryItem = {
+  id: string;
+  imgSrcList: string[];
+  title: string;
+};
+
+type VoteItem = {
+  approvalCnt: number;
+  disapprovalCnt: number;
+  id: string;
+  imgSrc: string;
+  name: string;
+};
+
+type DataTypes = {
+  category: CategoryItem[];
+  isVote: boolean;
+  voteList: VoteItem[];
+};
+
 const Home = () => {
-  const [initData, setInitData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { data, error, isLoading } = useSWR("/data/HomeData.json", swrFetcher);
+  const { data, error, isLoading }: { data: DataTypes; error: unknown; isLoading: boolean } =
+    useSWR("/data/HomeData.json", swrFetcher);
 
   useEffect(() => {
     if (!isLoading) {
@@ -43,13 +63,26 @@ const Home = () => {
   if (error) return <p>에러 발생!</p>;
   if (loading) return <p>로딩 중...</p>;
 
+  console.log(data);
   return (
     <>
       <TopNavigation />
 
       <Wrapper>
-        <p>메인페이지</p>
+        <TopSection data={data} />
       </Wrapper>
+
+      {/* <Wrapper>
+      <Slider {...settings}>
+      {data.category?.map((item: any) => {
+        return (
+          <div>
+
+          </div>
+        );
+      })}
+    </Slider>
+      </Wrapper> */}
     </>
   );
 };
