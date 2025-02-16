@@ -1,12 +1,11 @@
 "use client";
 
-import HotThings from "@/app/home/_components/HotThings";
 import TopNavigation from "@/components/Navigation/Top";
 import Wrapper from "@/components/Wrapper";
 import { swrFetcher } from "@/utils/handleFetch";
 import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
 import useSWR from "swr";
+import TopSection from "./_components/Top";
 
 /**
  *  @url /페이지접속시 통신할 초기 API
@@ -50,15 +49,6 @@ type DataTypes = {
 };
 
 const Home = () => {
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 1,
-    speed: 500,
-  };
-
   const [loading, setLoading] = useState(true);
 
   const { data, error, isLoading }: { data: DataTypes; error: unknown; isLoading: boolean } =
@@ -72,26 +62,27 @@ const Home = () => {
 
   if (error) return <p>에러 발생!</p>;
   if (loading) return <p>로딩 중...</p>;
+
+  console.log(data);
   return (
     <>
       <TopNavigation />
 
       <Wrapper>
-        <section className="div1">
-          <Slider {...settings}>
-            {data.category?.map((item) => {
-              return (
-                <HotThings
-                  src={`/img/${item.imgSrcList[0]}`}
-                  width={200}
-                  height={400}
-                  key={item.id}
-                />
-              );
-            })}
-          </Slider>
-        </section>
+        <TopSection data={data} />
       </Wrapper>
+
+      {/* <Wrapper>
+      <Slider {...settings}>
+      {data.category?.map((item: any) => {
+        return (
+          <div>
+
+          </div>
+        );
+      })}
+    </Slider>
+      </Wrapper> */}
     </>
   );
 };
